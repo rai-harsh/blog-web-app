@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog post</title>
+</head>
+<body>
+    
+
+        <h2>Write a new blog</h2>
+        <form action="/submit" method="POST">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required><br><br>
+                        
+            <label for="Blog">Blog:</label><br>
+            <textarea id="Blog" name="Blog" rows="4" cols="50"></textarea><br><br>
+            
+            <input type="submit" value="Submit">
+            <input type="reset" value="Reset">
+        </form>
+        <hr>
+        <h1>Blogs :</h1>
+        <% if(locals.Tblogs){ %>  
+            <% for(let i=0 ; i<Tblogs.length ; i++) { %>
+            <h2>Written by :<%= locals.Tblogs[i].username %> </h2>
+            <p><%= locals.Tblogs[i].Blog %></p>
+            <%} } else {%>
+            <p>there are no notes to display</p>
+            <% } %>
+</body>
